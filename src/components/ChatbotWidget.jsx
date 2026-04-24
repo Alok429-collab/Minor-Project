@@ -77,7 +77,7 @@ const ChatbotWidget = () => {
         
         try {
           const totalAmount = bookingData.count * TICKET_PRICE;
-          const response = await fetch('http://localhost:3000/api/create-order', {
+          const response = await fetch('/api/create-order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ amount: totalAmount })
@@ -112,7 +112,7 @@ const ChatbotWidget = () => {
               addBotMessage('Payment successful! Saving your tickets... ⏳');
               
               try {
-                const dbRes = await fetch('http://localhost:3000/api/book-ticket', {
+                const dbRes = await fetch('/api/book-ticket', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({
